@@ -1,0 +1,3 @@
+c_date,option_symbol,dte,stocks_id,expiration_date,call_put,price_strike,price_open,price_high,price_low,price,volume,openinterest,iv,delta,preiv,gamma,theta,vega,rho,Ask,Bid,underlying_price,calc_OTM,option_id,is_settlement
+2025-04-09,SPY   250509C00571000,30,627,2025-05-09,C,571.0,1.08,5.05,0.89,4.225,57,763,0.210945,0.228211,0.210945,0.009197,-0.176452,0.470783,0.098448,4.43,4.02,543.37,5.08,137937929,0
+2025-04-09,SPY   250509P00516000,30,627,2025-05-09,P,516.0,33.89,33.89,7.75,8.475,12,68,0.323284,-0.264147,0.323284,0.006544,-0.262369,0.51151,-0.111529,8.71,8.24,543.37,5.04,138102022,0
