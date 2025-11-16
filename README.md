@@ -3,9 +3,9 @@
 This project analyzes various scenarios for a **Bullish Risk Reversal** strategy that involves:
 
 - **Selling** 1-month **95% OTM SPY put options** (1000 contracts)
-- Using the collected premium to **buy** 1-month **105% OTM SPY call options**
+- Using the collected premium to **buy** 1-month **105% OTM SPY call options** (1000 contracts)
 
-The strategy is evaluated as of **April 9, 2025**, following a strong intraday market rally of approximately **10%**, one of the largest single-day moves in S&P 500 history.
+The strategy is placed as of late **April 9, 2025**, following a strong intraday market rally of approximately **10%**, one of the largest single-day moves in S&P 500 history.
 
 ---
 
