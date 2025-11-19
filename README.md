@@ -1,9 +1,9 @@
-# Options Strategy: Bullish Risk Reversal Strategy Analysis
+## Options Trading Strategy: Analysis on Bullish Risk Reversal Strategy
 
 This project analyzes various scenarios for a **Bullish Risk Reversal** strategy that involves:
 
-- **Selling** 1-month **95% OTM SPY put options** (1000 contracts)
-- Using the collected premium to **buy** 1-month **105% OTM SPY call options** (1000 contracts)
+- **Selling** 1-month **5% OTM SPY put options** (1000 contracts)
+- Using the collected premium to **buy** 1-month **5% OTM SPY call options** (1000 contracts)
 
 The strategy is placed as of late **April 9, 2025**, following a strong intraday market rally of approximately **10%**, one of the largest single-day moves in S&P 500 history.
 
@@ -44,7 +44,7 @@ We examine relevant historical data, including:
 
 - SPY returns after extreme large-move days  
 - Volatility term structure behavior  
-- Distribution of forward 1-month moves  
+
 - Skew and risk-premium considerations  
 
 ### 2b. Discuss reasonable max loss / max gain  
@@ -53,7 +53,6 @@ A clear discussion of:
 - Downside risk from the short put  
 - Upside convexity from the long call  
 - Impact of extreme tail events  
-- Realistic vs. theoretical payoff bounds  
 
 ---
 
@@ -64,36 +63,100 @@ Two alternative strategies are evaluated to determine whether they may offer a b
 ### 3a. Put spread + call structure  
 Instead of selling a naked put, we may:
 
-- Sell a 95% OTM put  
-- **Buy a further OTM put** (e.g., 90%) to define downside risk  
-- Use the net premium to fund the 105% OTM call
+- Sell a 5% OTM put  
+- **Buy a further OTM put** (e.g., 10%) to define downside risk  
+- Use the net premium to fund the 5% OTM call
 
 Analysis considers whether this structure is more appropriate given the market conditions on April 9, 2025, including:
 
 - Skew shape  
 - Crash risk  
-- Liquidity  
+
 - Post-rally volatility environment  
 
 ### 3b. Buying SPY outright  
 We compare outright long SPY exposure vs. entering the options structure.
 
-We consider:
+---
 
-- When outright SPY is superior (e.g., low implied volatility, muted skew, strong conviction)  
-- When the risk reversal is better (e.g., elevated IV, expensive calls, favorable put skew)  
+# Project Overview
+
+This project analyzes SPY option data through:
+
+* Option chain exploration
+* Yield & risk-free rate estimation
+* Scenario simulation (spot + IV shocks)
+* Historical rally-day analysis
+* Backtesting of option strategies
+* Pricing models (Black–Scholes + Binomial)
 
 ---
 
-## 📂 Project Structure
+# 📁 Project Structure
+
 ```
 project/
 │
-├── code/           # All notebooks, scripts, and analysis modules
-├── data/           # Raw and processed data used for analysis
-├── README.md       # Project documentation
-├── .gitignore      # Git ignore rules for the repository
-└── environment/    # (Optional) Environment or configuration files
+├── code/                     # Analysis & modeling notebooks
+│   ├── 0_ols_estimation_of_dividend_yield...
+│   ├── 0_option_chain_data_exploration...
+│   ├── 0_spy_data_exploration...
+│   ├── 1_options_trade_scenario_analysis.ipynb
+│   ├── 2.1_historical_rally_date_options_data_gather.ipynb
+│   ├── 2.2_trade_backtesting_and_analysis.ipynb
+│   ├── 3_max_min_pnl.ipynb
+│   └── 3_extension_scenarios.ipynb
+│
+├── data/
+│   ├── Option/               # Raw option chain CSV files
+│   ├── Result/               # Simulation + backtest outputs
+│   ├── SPY/                  # SPY price & return data
+│   └── Yield/                # Yield and dividend rate series
+│
+├── environment.yml           # Conda environment
+├── .env                      # Local environment variables
+├── .gitignore
+└── README.md
 ```
 
 ---
+
+#  Environment Setup
+
+A full Conda environment is provided.
+
+### **1. Create environment**
+
+```bash
+conda env create -f environment.yml
+```
+
+### **2. Activate**
+
+```bash
+conda activate options-env    # or the name inside environment.yml
+```
+
+### **3. Launch notebooks**
+
+```bash
+jupyter lab
+```
+
+---
+
+# Usage
+
+Run notebooks in order (recommended):
+
+1. **Data preparation & EDA** — `/code/0_*.ipynb`
+2. **Scenario analysis** — `/code/1_options_trade_scenario_analysis.ipynb`
+3. **Historical rally day & backtest** — `/code/2.*`
+4. **Extensions & PnL extremes** — `/code/3_*`
+
+Results will be exported to:
+
+```
+data/Result/
+```
+
