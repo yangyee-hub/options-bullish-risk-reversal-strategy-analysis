@@ -3,7 +3,7 @@
 This project analyzes various scenarios for a **Bullish Risk Reversal** strategy that involves:
 
 - **Selling** 1-month **5% OTM SPY put options** (1000 contracts)
-- Using the collected premium to **buy** 1-month **5% OTM SPY call options** (1000 contracts)
+- Using the collected premium to **buy** 1-month **5% OTM SPY call options**
 
 The strategy is placed as of late **April 9, 2025**, following a strong intraday market rally of approximately **10%**, one of the largest single-day moves in S&P 500 history.
 
@@ -24,6 +24,10 @@ This section constructs a complete scenario framework for evaluating the trade.
 
 ### 1a. Build an equity option valuation model  
 A set of reasonable assumptions is used to build a valuation model capable of computing prices for both the short 95% put and the long 105% call.
+
+#### Model Validation
+Black Scholes Merton and Cox-Ross-Rubinstein binomial tree model were built for option ppricing and evaluated against the actual market price.
+Cox-Ross-Rubinstein Binomial model yields lower error and also correctly accommodates the possibility of early exercise in American-style options (SPY is American Option).
 
 ### 1b. Compute the PnL of the trade structure  
 For each scenario, the model calculates:
@@ -75,7 +79,7 @@ Analysis considers whether this structure is more appropriate given the market c
 - Post-rally volatility environment  
 
 ### 3b. Buying SPY outright  
-We compare outright long SPY exposure vs. entering the options structure.
+We compare outright long SPY exposure vs. entering the two options structure above
 
 ---
 
@@ -111,10 +115,10 @@ project/
 │   ├── Option/               # Raw option chain CSV files
 │   ├── Result/               # Simulation + backtest outputs
 │   ├── SPY/                  # SPY price & return data
-│   └── Yield/                # Yield and dividend rate series
+│   └── Yield/                # Historical Yield series
 │
 ├── environment.yml           # Conda environment
-├── .env                      # Local environment variables
+├── .env                      # Local environment variables put api key here to pull options data
 ├── .gitignore
 └── README.md
 ```
